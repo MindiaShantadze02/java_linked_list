@@ -80,6 +80,13 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     @Override
     public void remove(int index) throws InvalidIndexException {
+        if (index == 0) {
+            removeFirst();
+            return;
+        } else if (index == (size - 1)) {
+            removeLast();
+        }
+
         validateIndex(index);
         Node<T> temp = this.head;
 
